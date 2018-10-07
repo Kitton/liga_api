@@ -41,7 +41,6 @@ defmodule LigaApi.Result do
   end
 
   @spec changeset(map) :: Changeset.t()
-  @impl true
   def changeset(params) do
     %Result{}
     |> Changeset.cast(params, @fields)
