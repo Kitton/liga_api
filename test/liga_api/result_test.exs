@@ -31,8 +31,8 @@ defmodule LigaApi.ResultTest do
       Factory.insert!(:result, division: "division")
       Factory.insert!(:result, season: 20_012_002, division: "division_2")
 
-      assert ["SP1 20172018", "division_2 20012002", "division 20172018"] ==
-               Result.list_divisions_and_seasons()
+      assert ["SP1 20172018", "division 20172018", "division_2 20012002"] ==
+               Enum.sort(Result.list_divisions_and_seasons())
     end
 
     test "retrieve 0 division and season pairs if DB is empty" do

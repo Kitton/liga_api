@@ -5,7 +5,9 @@ defmodule LigaApiWeb.Router do
     plug(:accepts, ["json"])
   end
 
-  scope "/api", LigaApiWeb do
+  scope "/v1", LigaApiWeb.V1 do
     pipe_through(:api)
+
+    get("/season_league_pairs", SeasonLeaguePairsController, :index)
   end
 end
