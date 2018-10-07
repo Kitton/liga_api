@@ -6,7 +6,7 @@ defmodule LigaApi.Result do
   alias Ecto.Changeset
 
   @type t :: %Result{
-          id: pos_integer,
+          id: pos_integer | nil,
           division: String.t(),
           season: pos_integer,
           date: Date.t(),
