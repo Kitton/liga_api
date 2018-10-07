@@ -25,14 +25,4 @@ defmodule LigaApiWeb.ConnCase do
       @endpoint LigaApiWeb.Endpoint
     end
   end
-
-
-  setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(LigaApi.Repo)
-    unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(LigaApi.Repo, {:shared, self()})
-    end
-    {:ok, conn: Phoenix.ConnTest.build_conn()}
-  end
-
 end

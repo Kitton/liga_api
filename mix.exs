@@ -36,7 +36,6 @@ defmodule LigaApi.Mixfile do
       {:phoenix, "~> 1.3.4"},
       {:phoenix_pubsub, "~> 1.0"},
       {:phoenix_ecto, "~> 3.2"},
-      {:postgrex, ">= 0.0.0"},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:mix_test_watch, "~> 0.8", only: :dev, runtime: false}
@@ -51,9 +50,8 @@ defmodule LigaApi.Mixfile do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
-      "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
-      "ecto.reset": ["ecto.drop", "ecto.setup"],
-      "test": ["ecto.create --quiet", "ecto.migrate", "test"]
+      "ecto.setup": ["run priv/repo/seeds.exs"],
+      "test": ["test"]
     ]
   end
 end
