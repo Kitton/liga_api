@@ -24,4 +24,14 @@ defmodule LigaApiWeb.ChannelCase do
       @endpoint LigaApiWeb.Endpoint
     end
   end
+
+
+  setup tags do
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(LigaApi.Repo)
+    unless tags[:async] do
+      Ecto.Adapters.SQL.Sandbox.mode(LigaApi.Repo, {:shared, self()})
+    end
+    :ok
+  end
+
 end

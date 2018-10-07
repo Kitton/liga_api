@@ -16,11 +16,23 @@ defmodule LigaApi.DataCase do
 
   using do
     quote do
+      alias LigaApi.Repo
+
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
       import LigaApi.DataCase
     end
+  end
+
+  setup tags do
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(LigaApi.Repo)
+
+    unless tags[:async] do
+      Ecto.Adapters.SQL.Sandbox.mode(LigaApi.Repo, {:shared, self()})
+    end
+
+    :ok
   end
 
   @doc """
