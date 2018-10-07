@@ -56,7 +56,7 @@ defmodule LigaApi.ResultTest do
           season: context.result1.season
         })
 
-      assert found_result == [context.result2, context.result1]
+      assert Enum.sort(found_result) == [context.result1, context.result2]
     end
 
     test "retrieve nothing if it doesnt exist", context do

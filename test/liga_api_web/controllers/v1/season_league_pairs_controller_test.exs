@@ -9,7 +9,7 @@ defmodule LigaApiWeb.V1.SeasonLeaguePairsControllerTest do
         |> get(season_league_pairs_path(conn, :index))
         |> json_response(200)
 
-      assert %{"data" => %{"season_league_pairs" => []}} == response
+      assert %{"season_league_pairs" => []} == response
     end
 
     test "return pproperly read data", %{conn: conn} do
@@ -20,7 +20,7 @@ defmodule LigaApiWeb.V1.SeasonLeaguePairsControllerTest do
         |> get(season_league_pairs_path(conn, :index))
         |> json_response(200)
 
-      assert %{"data" => %{"season_league_pairs" => ["SP1 20172018"]}} == response
+      assert %{"season_league_pairs" => ["SP1 20172018"]} == response
     end
   end
 end
