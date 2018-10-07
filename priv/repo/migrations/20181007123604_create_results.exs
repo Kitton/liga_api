@@ -16,6 +16,6 @@ defmodule LigaApi.Repo.Migrations.CreateResults do
       add(:htr, :string)
     end
 
-    create(unique_index(:results, [:division, :season]))
+    create(index(:results, [:division, :season]))
   end
 end

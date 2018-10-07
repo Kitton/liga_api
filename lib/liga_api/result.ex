@@ -4,11 +4,15 @@ defmodule LigaApi.Result do
   alias __MODULE__
   use Ecto.Schema
   alias Ecto.Changeset
+  import Ecto.Query
+
+  @type division :: String.t()
+  @type season :: pos_integer
 
   @type t :: %Result{
           id: pos_integer | nil,
-          division: String.t(),
-          season: pos_integer,
+          division: division,
+          season: season,
           date: Date.t(),
           home_team: String.t(),
           away_team: String.t(),
@@ -42,5 +46,16 @@ defmodule LigaApi.Result do
     %Result{}
     |> Changeset.cast(params, @fields)
     |> Changeset.validate_required(@fields)
+  end
+
+  @spec all_by_division_and_season(%{division: division, season: season}) :: [Result.t()] | []
+  def all_by_division_and_season(%{division: division, season: season}) do
+    query =
+      from(r in Result,
+        where: r.division == ^division and r.season == ^season,
+        select: r
+      )
+
+    LigaApi.Repo.all(query)
   end
 end
