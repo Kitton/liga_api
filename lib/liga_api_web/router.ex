@@ -9,5 +9,6 @@ defmodule LigaApiWeb.Router do
     pipe_through(:api)
 
     get("/season_league_pairs", SeasonLeaguePairsController, :index)
+    get("/results", ResultController, :index)
   end
 end
