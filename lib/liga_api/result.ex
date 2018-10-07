@@ -57,4 +57,15 @@ defmodule LigaApi.Result do
 
     LigaApi.Repo.all(query)
   end
+
+  @spec list_divisions_and_seasons() :: [String.t()] | []
+  def list_divisions_and_seasons do
+    query =
+      from(r in Result,
+        distinct: true,
+        select: [r.division, r.season]
+      )
+
+    query |> LigaApi.Repo.all() |> Enum.map(fn x -> Enum.join(x, " ") end)
+  end
 end

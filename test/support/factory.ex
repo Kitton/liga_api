@@ -6,7 +6,7 @@ defmodule LigaApi.Factory do
   def build(:result) do
     %Result{
       division: "SP1",
-      season: 20172018,
+      season: 20_172_018,
       date: ~D[2018-01-01],
       home_team: "La Coruna",
       away_team: "Eibar",
