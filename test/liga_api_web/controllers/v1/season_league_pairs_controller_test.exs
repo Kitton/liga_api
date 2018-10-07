@@ -7,7 +7,7 @@ defmodule LigaApiWeb.V1.SeasonLeaguePairsControllerTest do
       response =
         conn
         |> get(season_league_pairs_path(conn, :index))
-        |> json_response(200)
+        |> json_response(404)
 
       assert %{"season_league_pairs" => []} == response
     end
