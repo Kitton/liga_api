@@ -20,7 +20,8 @@ defmodule LigaApi.Mixfile do
   def application do
     [
       mod: {LigaApi.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools],
+      applications: [:exprotobuf]
     ]
   end
 
@@ -41,7 +42,8 @@ defmodule LigaApi.Mixfile do
       {:cowboy, "~> 1.0"},
       {:mix_test_watch, "~> 0.8", only: :dev, runtime: false},
       {:dialyxir, "~> 1.0.0-rc.3", only: [:dev], runtime: false},
-      {:csv, "~> 2.0.0"}
+      {:csv, "~> 2.0.0"},
+      {:exprotobuf, "~> 1.2.0"}
     ]
   end
 

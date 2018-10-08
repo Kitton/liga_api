@@ -2,7 +2,7 @@ defmodule LigaApiWeb.Router do
   use LigaApiWeb, :router
 
   pipeline :api do
-    plug(:accepts, ["json"])
+    plug(:accepts, ["json", "x-protobuf"])
   end
 
   scope "/v1", LigaApiWeb.V1 do

@@ -1,0 +1,17 @@
+message Result {
+  enum Version {
+    V1 = 1;
+  }
+
+  required string division = 1;
+  required uint32 season = 2;
+  required string date = 3;
+  required string home_team = 4;
+  required string away_team = 5;
+  required uint32 fthg = 6;
+  required uint32 ftag = 7;
+  required string ftr = 8;
+  required uint32 hthg = 9;
+  required uint32 htag = 10;
+  required string htr = 11;
+}
