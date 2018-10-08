@@ -8,6 +8,9 @@ defmodule LigaApiWeb.V1.ResultController do
     season_league_pair = Map.fetch!(params, "season_league_pair")
     [division, season] = String.split(season_league_pair)
     results = Result.all_by_division_and_season(%{division: division, season: season})
-    render(conn, "index.json", %{data: results})
+    case results do
+      [] -> render(put_status(conn, 404), "index.json", %{data: results})
+      _ -> render(conn, "index.json", %{data: results})
+    end
   end
 end
